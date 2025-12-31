@@ -187,6 +187,29 @@ For passwordless SSH access (recommended):
 - SSH access to target machines
 - `rsync` installed on all machines (source and targets)
 
+## 📋 Code Quality
+
+This project includes:
+- **ESLint**: Airbnb JavaScript Style Guide with TypeScript support
+- **Strict TypeScript**: Comprehensive type checking with strict compiler options
+- **Pre-commit hooks**: Recommended to run `npm run lint` before committing
+
+### Available Scripts
+
+```bash
+# Build the project
+npm run build
+
+# Run ESLint
+npm run lint
+
+# Run ESLint with auto-fix
+npm run lint:fix
+
+# Run the application
+node dist/index.js [config-path]
+```
+
 ## 🐛 Troubleshooting
 
 ### SSH Connection Issues

@@ -20,10 +20,13 @@ export class SyncManager {
       mkdirSync('cache');
     }
 
+    // Process machines sequentially (not in parallel) to avoid overwhelming SSH connections
+    // eslint-disable-next-line no-await-in-loop
     for (const machine of destinationMachines) {
       const command = `rsync ${rsyncOptions.join(' ')} -e ssh ${source} ${machine}:${source}`;
       try {
-        const { stdout, stderr } = await execAsync(command);
+        // eslint-disable-next-line no-await-in-loop
+        await execAsync(command);
         log(`Synced ${source} to ${machine}`, 'SUCCESS', configName);
       } catch (error: unknown) {
         const errorMessage = error instanceof Error ? error.message : String(error);
