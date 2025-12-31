@@ -23,11 +23,9 @@ async function main() {
       }
 
       // Process configurations sequentially (not in parallel) to avoid overwhelming SSH connections
-      // eslint-disable-next-line no-await-in-loop
       for (const configFile of configFiles) {
         const fullPath = join(configsDir, configFile);
         const syncManager = new SyncManager(fullPath);
-        // eslint-disable-next-line no-await-in-loop
         await syncManager.sync();
       }
 

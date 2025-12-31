@@ -6,6 +6,7 @@ import { log } from './utils';
 const execAsync = promisify(exec);
 
 export class SyncManager {
+  // eslint-disable-next-line no-unused-vars
   constructor(private configPath: string) {}
 
   async sync() {
@@ -21,11 +22,9 @@ export class SyncManager {
     }
 
     // Process machines sequentially (not in parallel) to avoid overwhelming SSH connections
-    // eslint-disable-next-line no-await-in-loop
     for (const machine of destinationMachines) {
       const command = `rsync ${rsyncOptions.join(' ')} -e ssh ${source} ${machine}:${source}`;
       try {
-        // eslint-disable-next-line no-await-in-loop
         await execAsync(command);
         log(`Synced ${source} to ${machine}`, 'SUCCESS', configName);
       } catch (error: unknown) {
