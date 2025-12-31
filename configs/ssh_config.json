@@ -1,0 +1,6 @@
+{
+  "source": "~/.ssh/config",
+  "destinationMachines": ["user@host1", "user@host2"],
+  "cachePath": "cache/ssh_config",
+  "rsyncOptions": ["-avz", "--delete"]
+}
