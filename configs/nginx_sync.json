@@ -1,0 +1,6 @@
+{
+  "source": "~/projects/web-app/",
+  "destinationMachines": ["deploy@web-server1.com", "deploy@web-server2.com"],
+  "cachePath": "cache/nginx_app",
+  "rsyncOptions": ["-avz", "--delete", "--exclude=node_modules/", "--exclude=.git/"]
+}

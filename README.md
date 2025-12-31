@@ -35,14 +35,28 @@ Create a new file in `configs/` directory, for example `configs/my_ssh_config.js
 ```
 
 ### 5. Run the synchronization
+
+**Single configuration:**
 ```bash
 node dist/index.js configs/my_ssh_config.json
 ```
 
+**All configurations:** (when no config path is specified)
+```bash
+node dist/index.js
+```
+
 ### 6. (Optional) Set up automatic synchronization
 Add to your crontab:
+
+**Single configuration:**
 ```bash
 */5 * * * * /usr/bin/node /path/to/besync/dist/index.js configs/my_ssh_config.json
+```
+
+**All configurations:**
+```bash
+*/5 * * * * /usr/bin/node /path/to/besync/dist/index.js
 ```
 
 ## 📖 Configuration Examples
@@ -74,6 +88,16 @@ Add to your crontab:
   "destinationMachines": ["deploy@app-server1.com", "deploy@app-server2.com"],
   "cachePath": "cache/app_config",
   "rsyncOptions": ["-avz", "--delete", "--exclude=*.log"]
+}
+```
+
+### Example 4: Full Project Directory Synchronization
+```json
+{
+  "source": "~/projects/web-app/",
+  "destinationMachines": ["deploy@web-server1.com", "deploy@web-server2.com"],
+  "cachePath": "cache/nginx_app",
+  "rsyncOptions": ["-avz", "--delete", "--exclude=node_modules/", "--exclude=.git/"]
 }
 ```
 
