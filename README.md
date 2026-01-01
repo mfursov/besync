@@ -190,7 +190,7 @@ For passwordless SSH access (recommended):
 ## 📋 Code Quality
 
 This project includes:
-- **ESLint**: Airbnb JavaScript Style Guide with TypeScript support
+- **ESLint**: TypeScript linting with strict rules
 - **Strict TypeScript**: Comprehensive type checking with strict compiler options
 - **Pre-commit hooks**: Recommended to run `npm run lint` before committing
 

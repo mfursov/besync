@@ -11,7 +11,7 @@ export function log(message: string, type: 'INFO' | 'SUCCESS' | 'ERROR' = 'INFO'
   // Лог по конфигурации
   if (configName) {
     if (!existsSync('configs')) {
-      mkdirSync('configs');
+      mkdirSync('configs', { recursive: true });
     }
     appendFileSync(`configs/${configName}.log`, `${logMessage}\n`);
   }
