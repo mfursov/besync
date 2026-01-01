@@ -4,3 +4,5 @@ cache/
 *.log
 .DS_Store
 .idea/
+configs
+backup

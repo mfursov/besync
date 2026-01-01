@@ -1,7 +1,7 @@
 import { appendFileSync, existsSync, mkdirSync } from 'fs';
 
 // Note: configName is optional and comes after required params for better readability
-export function log(message: string, type: 'INFO' | 'SUCCESS' | 'ERROR' = 'INFO', configName?: string) {
+export function log(message: string, type: 'INFO' | 'SUCCESS' | 'ERROR' | 'WARNING' = 'INFO', configName?: string) {
   const timestamp = new Date().toISOString();
   const logMessage = `[${timestamp}] [${type}] ${message}`;
 
